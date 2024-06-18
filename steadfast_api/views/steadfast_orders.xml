@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <record id="view_steadfast_order_form" model="ir.ui.view">
+          <field name="name">view.steadfast.order.form</field>
+          <field name="model">steadfast.order</field>
+          <field name="priority">2</field>
+          <field name="arch" type="xml">
+               <form string="Steadfast Orders">
+                    <header>
+                         <button name='check_status' string="Check Status" class="btn-primary" type="object"/>
+                    </header>
+                    <sheet>
+                         <group>
+                              <group>
+                                   <field name="consignment_id"/>
+                                   <field name="invoice"/>
+                                   <field name="tracking_code"/>
+                                   <field name="recipient_name"/>
+                                   <field name="recipient_phone"/>
+                                   <field name="recipient_address"/>
+                                   <field name="cod_amount"/>
+                                   <field name="status"/>
+                                   <field name="note"/>
+                                   <field name="created_at"/>
+                                   <field name="updated_at"/>
+                                   <field name="delivery_status"/>
+                                   <field name="company_id"/>
+                              </group>
+                         </group>
+                    </sheet>
+               </form>
+          </field>
+     </record>
+
+     <record id="view_steadfast_order_tree" model="ir.ui.view">
+          <field name="name">view.steadfast.order.tree</field>
+          <field name="model">steadfast.order</field>
+          <field name="priority">2</field>
+          <field name="arch" type="xml">
+               <tree string="Steadfast Orders">
+                    <field name="consignment_id"/>
+                    <field name="invoice"/>
+                    <field name="tracking_code" optional="hide"/>
+                    <field name="recipient_name" optional="hide"/>
+                    <field name="recipient_phone" optional="hide"/>
+                    <field name="recipient_address" optional="hide"/>
+                    <field name="cod_amount"/>
+                    <field name="status" optional="hide"/>
+                    <field name="note" optional="hide"/>
+                    <field name="created_at" optional="hide"/>
+                    <field name="updated_at" optional="hide"/>
+                    <field name="delivery_status"/>
+               </tree>
+          </field>
+     </record>
+
+     <record id="action_steadfast_order_view" model="ir.actions.act_window">
+          <field name="name">Steadfast order</field>
+          <field name="res_model">steadfast.order</field>
+          <field name="view_mode">tree,form</field>
+          <field name="view_id" ref="steadfast_api.view_steadfast_order_tree"/>
+     </record>
+
+     <record id="menu_steadfast_order_details" model="ir.ui.menu">
+          <field name="name">Steadfast Orders</field>
+          <field name="sequence" eval="10"/>
+          <field name="parent_id" ref="sale.sale_order_menu"/>
+          <field name="action" ref="steadfast_api.action_steadfast_order_view"/>
+     </record>
+</odoo>

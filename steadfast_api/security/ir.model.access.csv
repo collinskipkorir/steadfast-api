@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_steadfast_credential,steadfast.credential,model_steadfast_credential,base.group_user,1,1,1,1
+access_steadfast_order,steadfast.order,model_steadfast_order,base.group_user,1,1,1,1
+access_sale_store,access.sale.store,model_sale_store,base.group_user,1,1,1,1

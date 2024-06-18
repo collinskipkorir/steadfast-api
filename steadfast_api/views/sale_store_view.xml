@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sale_stores_form" model="ir.ui.view">
+        <field name="name">view.sale.stores.form</field>
+        <field name="model">sale.store</field>
+        <field name="priority">2</field>
+        <field name="arch" type="xml">
+            <form string="Stores">
+                <sheet>
+                        <group>
+                            <group>
+                                <field name="name" />
+                            </group>
+                        </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_sale_stores_tree" model="ir.ui.view">
+        <field name="name">view.sale.stores.tree</field>
+        <field name="model">sale.store</field>
+        <field name="priority">2</field>
+        <field name="arch" type="xml">
+            <tree string="Stores">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_sale_stores_view" model="ir.actions.act_window">
+        <field name="name">Stores</field>
+        <field name="res_model">sale.store</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="steadfast_api.view_sale_stores_tree" />
+    </record>
+
+    <record id="menu_sale_stores" model="ir.ui.menu">
+        <field name="name">Stores</field>
+        <field name="sequence" eval="10" />
+        <field name="parent_id" ref="sale.sale_order_menu" />
+        <field name="action" ref="steadfast_api.action_sale_stores_view" />
+    </record>
+</odoo>
